@@ -7,13 +7,13 @@ export interface Todo {
   completed: boolean;
 }
 
-const initialState = Todo[] = [];
+const initialState: Todo[] = [];
 
 const todoSlice = createSlice({
   name: "todos",
   initialState,
-  reducres: {
-    add: (state, action: PayloadAction<string>) => {
+  reducers: {
+    add: (state: any, action: PayloadAction<string>) => {
       const newTodo = { id:uuid.v4(), title: action.payload, completed: false }
       state.push(newTodo)
     }
