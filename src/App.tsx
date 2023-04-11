@@ -5,12 +5,13 @@ import { useAppDispatch, useAppSelector } from './store';
 
 function App() {
   const todos = useAppSelector(state => state.todos)
+  console.log('TODOS:',todos)
   const [title, setTitle] = useState("")
 
   const dispatch = useAppDispatch();
 
   const onSave = () => {
-    dispatch(add("title"));
+    dispatch(add(title));
     setTitle("");
   }
 
@@ -19,8 +20,8 @@ function App() {
       <input name="title" value={title} onChange={(e) => setTitle(e.currentTarget.value)} />
       <button onClick={onSave}>Save</button>
       <ul>
-        {todos.map((todo)=> console.log(todo)
-        )}
+        {todos.map((todo)=> (<li key={todo.id}>{todo.title}</li>))}
+
       </ul>
     </div>
   );
